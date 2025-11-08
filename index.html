@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarker</title>
+    <!--^-----------bootstrap stylee sheet --------------------------->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!--^------------ main stylee sheet ------------------------------>
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!--^##########################   fonts     ######################## -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <!--^##########################   font Awesome   ######################## -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="text-center  text-head    ">Bookmarker </h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row row-cols-lg-2">
+                <section class="section-1 mb-5">
+                    <h2 class="text-center mb-5"><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites<i
+                            class="fa-solid fa-bookmark"></i>
+                    </h2>
+                    <form action="">
+                        <div class="mb-5">
+                            <label for="siteNameInput" class="form-label fw-bold"><i
+                                    class="fa-solid fa-book-bookmark"></i> Site Name</label>
+                            <input type="text" class="form-control" id="siteNameInput" placeholder="Bookmark Name">
+                        </div>
+                        <div class="mb-5">
+                            <label for="siteUrlInput" class="form-label fw-bold"><i class="fa-solid fa-link"></i> Site
+                                Url</label>
+                            <input type="text" class="form-control" id="siteUrlInput" placeholder="Website URL">
+                        </div>
+                        <button type="button" id="addBtn" class="btn btn-danger">Submit</button>
+                    </form>
+                </section>
+
+                <section class="section-2 pt-2 ">
+                    <form>
+                        <div class="mb-5">
+                            <!-- <label for="searchInput" class="form-label fw-bold"> Site Name</label> -->
+                            <input type="search" class="form-control" id="searchInput"
+                                placeholder="Search By Site Name">
+                        </div>
+                    </form>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Index</th>
+                                <th scope="col">Wepsite Name</th>
+                                <th scope="col">Visit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sitesContener">
+
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!--^########################## Sweet alert   ######################## -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--^########################## js files   ######################## -->
+    <script src="./js/index.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
