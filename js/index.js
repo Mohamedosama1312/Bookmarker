@@ -5,15 +5,11 @@ var addBtn = document.querySelector("#addBtn");
 var sitesContener = document.querySelector("#sitesContener");
 var searchSiteInput = document.querySelector("#searchInput");
 
-// var visitBtn = document.querySelector("#visitBtn");
-
-
 
 
 //& #### App Variables ####
 var siteList = JSON.parse(localStorage.getItem("siteListLocal")) || [];
 displayAllSites();
-
 
 
 var urlRegex = /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]{1,256}\.[a-zA-Z]{2,6})$/;
@@ -23,19 +19,22 @@ var nameRegex = /^[A-Z][A-Za-z0-9.]*$/;
 addBtn.addEventListener("click", addSite);
 searchSiteInput.addEventListener("input", searchSites)
 
-siteNameInput.addEventListener("input", function () {
+siteNameInput.addEventListener("change", function () {
     validate(nameRegex, siteNameInput);
 })
-siteUrlInput.addEventListener("input", function () {
+siteUrlInput.addEventListener("blur", function () {
     validate(urlRegex, siteUrlInput);
 })
 
-// visitBtn.addEventListener("click", function (index) {
-//     var ulr = siteList[index].url;
 
-//     window.open(url, "_blank");
-// });
-
+sitesContener.addEventListener("click", function (e) {
+    let trTarget = e.target.closest(".tr");
+    if (e.target.dataset.role === "visit") {
+        visitSite(trTarget.dataset.index);
+    } else if (e.target.dataset.role === "delet") {
+        deleteSite(trTarget.dataset.index);
+    }
+})
 
 
 //^ #### function ####
@@ -68,11 +67,11 @@ function addSite() {
 }
 
 function displaySites(index) {
-    var sitesMarkup = ` <tr>
+    var sitesMarkup = ` <tr class="tr"  data-index="${index}">    
                                 <th scope="row">  ${index + 1}</th>
                                 <td>${siteList[index].name}</td>
-                                <td><button class="btn btn-success" onclick="visitSite(${index})"><i class="fa-solid fa-eye"></i>Visit</button></td>
-                                <td><button class="btn btn-danger" onclick="deleteSite(${index})"><i class="fa-solid fa-trash"></i>Delete</button></td>
+                                <td><button class="btn btn-success" data-role="visit" ><i  data-role="visit" class="fa-solid fa-eye"></i>Visit</button></td>
+                                <td><button class="btn btn-danger" data-role="delet" ><i  data-role="delet" class="fa-solid fa-trash"></i>Delete</button></td>
                             </tr>`
 
     sitesContener.innerHTML += sitesMarkup;
